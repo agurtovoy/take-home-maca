@@ -1,10 +1,11 @@
 const { mergeConfig } = require("vite")
 const jsconfigPaths = require("vite-jsconfig-paths").default
+const svgr = require("vite-plugin-svgr")
 
 module.exports = {
     async viteFinal(config, { configType }) {
         return mergeConfig(config, {
-            plugins: [jsconfigPaths()]
+            plugins: [jsconfigPaths(), svgr({ exportAsDefault: true })],
         })
     },
     "stories": [

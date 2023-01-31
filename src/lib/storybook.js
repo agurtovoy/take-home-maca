@@ -1,6 +1,7 @@
-export const withArgs = (Story, args) => {
+export const configure = (Story, args, params) => {
     const result = Story.bind({});
     result.args = args;
+    result.parameters = params;
     return result;
 };
 

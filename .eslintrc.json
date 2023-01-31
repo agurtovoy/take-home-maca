@@ -3,5 +3,8 @@
         "react-app", 
         "plugin:prettier/recommended", 
         "plugin:storybook/recommended"
-    ]
+    ],
+    "rules": {
+        "react/no-unknown-property": ["error"]
+    }
 }

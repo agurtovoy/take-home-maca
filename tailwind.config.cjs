@@ -8,7 +8,10 @@ module.exports = {
             colors: {
                 primary: colors.indigo,
             },
+            screens: {
+                ss: "480px", // "sidebar shown" breakpoint
+            },
         },
     },
-    plugins: [],
+    plugins: [require("@shrutibalasa/tailwind-grid-auto-fit")],
 };

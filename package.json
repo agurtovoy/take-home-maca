@@ -12,12 +12,17 @@
   },
   "dependencies": {
     "clsx": "^1.2.1",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-use": "^17.4.0",
+    "swr": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@mdx-js/react": "^1.6.22",
+    "@shrutibalasa/tailwind-grid-auto-fit": "^1.1.0",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-backgrounds": "^6.5.16",
     "@storybook/addon-docs": "^6.5.16",
@@ -49,11 +54,14 @@
     "prettier-plugin-tailwindcss": "^0.2.2",
     "storybook-dark-mode": "^2.0.5",
     "stylelint": "^14.16.1",
+    "stylelint-config-css-modules": "^4.1.0",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-tailwindcss": "^0.0.7",
     "stylelint-prettier": "^2.0.0",
     "tailwindcss": "^3.2.4",
     "vite": "^4.0.0",
-    "vite-jsconfig-paths": "^2.0.1"
+    "vite-jsconfig-paths": "^2.0.1",
+    "vite-plugin-svgr": "^2.4.0"
   }
 }

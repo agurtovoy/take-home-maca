@@ -1,5 +1,5 @@
 import Button from "@/components/button";
-import { withArgs, select, boolean } from "@/lib/storybook";
+import { configure, select, boolean } from "@/lib/storybook";
 
 export default {
     component: Button,
@@ -13,8 +13,8 @@ export default {
 
 const Story = ({ title, ...args }) => <Button {...args}>{title}</Button>;
 
-export const Primary = withArgs(Story, { title: "Let's go" });
-export const Secondary = withArgs(Story, { title: "Never mind", variant: "secondary" });
+export const Primary = configure(Story, { title: "Let's go" });
+export const Secondary = configure(Story, { title: "Never mind", variant: "secondary" });
 
 export const Paired = ({ size, disabled, ...args }) => (
     <div className="flex space-x-4">

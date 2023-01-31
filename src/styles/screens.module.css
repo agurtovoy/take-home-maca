@@ -1,0 +1,8 @@
+:export {
+    sm: theme("screens.sm");
+    md: theme("screens.md");
+    lg: theme("screens.lg");
+    xl: theme("screens.xl");
+    xxl: theme("screens.2xl");
+    ss: theme("screens.ss");
+}
