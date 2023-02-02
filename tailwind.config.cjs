@@ -9,6 +9,7 @@ module.exports = {
                 primary: colors.indigo,
             },
             screens: {
+                xs: "270px",
                 ss: "480px", // "sidebar shown" breakpoint
             },
         },

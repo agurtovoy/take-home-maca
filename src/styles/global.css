@@ -28,6 +28,10 @@ body {
     transition-duration: 700ms;
 }
 
+.invisible-children * {
+    visibility: hidden;
+}
+
 @supports (-moz-appearance: none) {
     .moz-ml-n2px {
         margin-left: -2px;

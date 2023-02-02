@@ -52,22 +52,33 @@ const CategorySelector = ({ id, name, selected }) => (
 
 const FiltersHeader = () => (
     <div className="sticky top-0">
-        <h2 className="mt-[1px] whitespace-nowrap bg-gray-700 p-5 pb-3 text-sm font-semibold uppercase">
+        <h2 className="mt-[1px] cursor-default whitespace-nowrap bg-gray-700 p-5 pb-3 text-sm font-semibold uppercase">
             Filter by type
         </h2>
         <div className="h-2 bg-gradient-to-b from-gray-700"></div>
     </div>
 );
 
+const PokedexHeaderContent = ({ className }) => (
+    <div className={clsx("flex items-center pt-4 pl-1 pb-3", className)}>
+        <OpenSideBarButton />
+        <h1 className="cursor-default text-xl font-bold leading-5">
+            Pokédex <i className="font-normal italic">Lite</i>
+        </h1>
+    </div>
+);
+
 const PokedexHeader = () => (
-    <div className="sticky top-0 select-none">
-        <div className="flex items-center  bg-slate-800 pt-4 pl-1 pb-3">
-            <OpenSideBarButton />
-            <h1 className="cursor-default text-xl font-bold leading-5">
-                Pokédex <i className="font-normal italic">Lite</i>
-            </h1>
+    <div className="">
+        <div className="fixed top-0 left-0 right-0 select-none xs:right-4">
+            <PokedexHeaderContent className="invisible-children pointer-events-none bg-slate-800" />
+            <div className="h-2 bg-gradient-to-b from-slate-800"></div>
         </div>
-        <div className="h-2 bg-gradient-to-b from-slate-800"></div>
+
+        <div className="fixed top-0 select-none">
+            <PokedexHeaderContent />
+        </div>
+        <div className="pt-[4.2rem]" />
     </div>
 );
 

@@ -37,12 +37,15 @@ export const Sidebar = ({ children }) => {
 
     return (
         <>
-            <aside className="fixed top-0 z-50 h-screen ss:sticky">
-                <div className="relative">
+            <aside className="pointer-events-none fixed top-0 z-50 h-screen">
+                <div className="relative overflow-x-clip">
+                    <div className="pr-4">
+                        <div className="ss-w-full" />
+                    </div>
                     <div
                         className={clsx(
                             "ss-duration ss-w-full absolute top-0 left-0 transform-gpu select-none opacity-100 transition will-change-transform",
-                            isShown ? "ss:translate-x-0" : "-translate-x-full"
+                            isShown ? "pointer-events-auto ss:translate-x-0" : "-translate-x-full"
                             //                        forceClose ? "ss:opacity-0" : "ss:translate-x-0 ss:opacity-100"
                             // state.forceClose ? "" : "ss:translate-x-0"
                         )}
