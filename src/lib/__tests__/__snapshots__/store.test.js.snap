@@ -1,0 +1,23 @@
+// Vitest Snapshot v1
+
+exports[`correctly initialized > list of types 1`] = `
+{
+  "101": "normal",
+  "17": "fighting",
+  "42": "flying",
+}
+`;
+
+exports[`selection > set/unset 1`] = `
+[
+  17,
+  101,
+]
+`;
+
+exports[`selection > set/unset 2`] = `
+[
+  "fighting",
+  "normal",
+]
+`;
