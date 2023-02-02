@@ -1,6 +1,7 @@
 import clsx from "clsx";
 
 import { Sidebar, SidebarLayout, OpenSideBarButton } from "@/components/sidebar";
+import { PokemonList } from "@/components/pokemon";
 
 import { usePokeAPI, gql } from "@/lib/poke-api";
 
@@ -21,21 +22,6 @@ const initialData = gql`
         }
     }
 `;
-
-const paddedId = (id, padding = 3) => String(id).padStart(padding, "0");
-
-const thumbnailUrl = id => `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedId(id)}.png`;
-
-const PokemonCard = ({ id, name }) => (
-    <div className="flex flex-col items-center rounded-lg bg-slate-700 px-4 py-3">
-        <div className="flex w-full items-baseline justify-between">
-            <h5 className="text-lg font-bold capitalize">{name}</h5>
-            <div className="text-md font-semibold text-slate-500">#{paddedId(id, 4)}</div>
-        </div>
-
-        <img className="w-full max-w-xs select-none px-4 py-7" src={thumbnailUrl(id)} alt={name} />
-    </div>
-);
 
 const CategorySelector = ({ id, name, selected }) => (
     <label
@@ -83,7 +69,7 @@ const PokedexHeader = () => (
 );
 
 const App = () => {
-    const { data, error } = usePokeAPI(initialData);
+    const { data, error } = usePokeAPI([initialData]);
     if (error) return <div>An error has occurred: {error.toString()}</div>;
     if (!data) return "Loading...";
 
@@ -102,13 +88,7 @@ const App = () => {
                 </Sidebar>
                 <main className="basis-full will-change-contents">
                     <PokedexHeader />
-                    <ul className="min-w-screen ss-duration z-0 mx-5 mb-5 grid gap-4 bg-slate-800 transition-all grid-auto-fit-sm">
-                        {(data?.pokemon || []).map(props => (
-                            <li key={props.id}>
-                                <PokemonCard {...props} />
-                            </li>
-                        ))}
-                    </ul>
+                    <PokemonList preloadedData={data?.pokemon} />
                 </main>
             </SidebarLayout>
         </div>
