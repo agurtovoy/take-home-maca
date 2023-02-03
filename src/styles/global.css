@@ -20,20 +20,31 @@ body {
     overflow-x: hidden;
 }
 
-.ss-w-full {
-    width: 10.5rem;
-}
+@layer utilities {
+    .zstack {
+        @apply grid grid-cols-1 grid-rows-1;
+    }
 
-.ss-duration {
-    transition-duration: 700ms;
-}
+    .zstack > * {
+        grid-row: 1;
+        grid-column: 1;
+    }
 
-.invisible-children * {
-    visibility: hidden;
-}
+    .ss-w-full {
+        width: 10.5rem;
+    }
 
-@supports (-moz-appearance: none) {
-    .moz-ml-n2px {
-        margin-left: -2px;
+    .ss-duration {
+        transition-duration: 700ms;
+    }
+
+    .invisible-children * {
+        visibility: hidden;
+    }
+
+    @supports (-moz-appearance: none) {
+        .moz-ml-n2px {
+            margin-left: -2px;
+        }
     }
 }

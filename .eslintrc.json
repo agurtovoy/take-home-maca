@@ -5,6 +5,7 @@
         "plugin:storybook/recommended"
     ],
     "rules": {
-        "react/no-unknown-property": ["error"]
+        "react/no-unknown-property": ["error"],
+        "import/no-anonymous-default-export": ["error", { "allowObject": true }]
     }
 }
