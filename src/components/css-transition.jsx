@@ -26,6 +26,10 @@ export const useCSSTransition = ({
                 if (show) setState("enterFrom");
                 break;
 
+            case "leaveFrom":
+                if (show) setState("entered");
+                break;
+
             case "entering":
                 if (!show) setState("leaving");
                 break;
@@ -53,6 +57,10 @@ export const useCSSTransition = ({
             case "leaving":
                 setState("left");
                 afterLeave && afterLeave();
+                break;
+
+            case "left":
+            case "entered":
                 break;
 
             default:

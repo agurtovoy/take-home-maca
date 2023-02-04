@@ -110,7 +110,7 @@ const ModalOverlay = ({ isShown, onClick }) => (
     <div
         onClick={onClick}
         className={clsx(
-            "fixed inset-0 z-20 bg-gray-800 transition-opacity duration-300 will-change-transform ss:hidden",
+            "fixed inset-0 z-40 bg-gray-800 transition-opacity duration-300 will-change-transform ss:hidden",
             isShown ? "opacity-75" : "-translate-x-full opacity-0"
         )}
     />

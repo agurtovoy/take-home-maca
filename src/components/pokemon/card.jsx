@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, memo } from "react";
 import { CSSTransition, useCSSTransition } from "@/components/css-transition";
 import clsx from "clsx";
 
@@ -8,8 +8,10 @@ const paddedId = (id, padding = 3) => String(id).padStart(padding, "0");
 
 const thumbnailUrl = id => `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedId(id)}.png`;
 
-export const Card = ({ children }) => (
-    <div className="flex flex-col items-center rounded-lg bg-slate-700 px-4 py-3">{children}</div>
+export const Card = ({ children, transparent = false }) => (
+    <div className={clsx("flex flex-col items-center rounded-lg px-4 py-3", !transparent && "bg-slate-700")}>
+        {children}
+    </div>
 );
 
 const ThumbnailPlaceholder = ({ shown, animateLeave, spinnerDelay, afterEnter }) => {
@@ -52,7 +54,7 @@ const ThumbnailImage = ({ shown, animateAppearance, id, alt, onLoad }) => {
     const imageRef = useRef();
     const { mounted, className, ...props } = useCSSTransition({
         show: shown,
-        enter: clsx("transition", animateAppearance ? "duration-500" : "duration-75"),
+        enter: clsx("transition", animateAppearance ? "duration-500" : "duration-[1ms]"),
         enterFrom: animateAppearance ? "opacity-0 scale-0" : "opacity-100 scale-100",
         enterTo: "opacity-100 scale-100",
         hidden: "opacity-0 scale-0",
@@ -95,7 +97,7 @@ const Thumbnail = ({ id, alt }) => {
     );
 };
 
-export const PokemonCard = ({ id, name }) => {
+export const PokemonCard = memo(({ id, name }) => {
     return (
         <Card>
             <div className="flex w-full items-baseline justify-between">
@@ -105,4 +107,4 @@ export const PokemonCard = ({ id, name }) => {
             <Thumbnail id={id} alt={name} />
         </Card>
     );
-};
+});
