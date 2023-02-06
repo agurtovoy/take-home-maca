@@ -1,6 +1,7 @@
 import { Sidebar, SidebarLayout } from "@/components/sidebar";
 import { FiltersPanel } from "@/components/filters/panel";
 import { Pokedex } from "@/components/pokemon/pokedex";
+import { Spinner } from "@/components/spinner";
 import { StoreProvider } from "@/components/store";
 
 import { usePokeAPI, gql } from "@/lib/poke-api";
@@ -29,8 +30,13 @@ const MainScreen = () => (
 
 const App = () => {
     const { data, error } = usePokeAPI([typesQuery]);
-    if (error) return <div>An error has occurred: {error.toString()}</div>;
-    if (!data) return "Loading...";
+    if (!data || error) {
+        return (
+            <div className="flex h-screen w-screen items-center justify-center">
+                <Spinner />
+            </div>
+        );
+    }
 
     return (
         <StoreProvider typeFiltersList={data?.types} logging={import.meta.env.DEV}>

@@ -1,9 +1,8 @@
 import clsx from "clsx";
 
 import { OpenSideBarButton } from "@/components/sidebar";
-import { CSSTransition } from "@/components/css-transition";
+import { Spinner } from "@/components/spinner";
 import { PokemonList } from "@/components/pokemon/list";
-import PokeBall from "@/components/svg/pokeball.svg";
 
 import { queries, useLoadPokemons } from "@/components/pokemon/queries";
 
@@ -41,22 +40,7 @@ const useTypeFilters = () => {
 
 const PendingQuerySpinner = () => (
     <div className="absolute top-0 left-1/2">
-        <div className="pointer-events-none fixed top-[50%] z-30 flex h-32 w-32 -translate-y-1/2 -translate-x-1/2 items-center justify-center">
-            <CSSTransition
-                show={true}
-                appear={true}
-                enter="transition-opacity delay-500 duration-1000"
-                enterFrom="opacity-0"
-                enterTo="opacity-40"
-                leave="transition-opacity duration-200"
-                leaveFrom="opacity-40"
-                leaveTo="opacity-0"
-            >
-                <div>
-                    <PokeBall className="w-full animate-spin fill-slate-500" />
-                </div>
-            </CSSTransition>
-        </div>
+        <Spinner className="fixed top-[50%] -translate-y-1/2 -translate-x-1/2 " />
     </div>
 );
 
