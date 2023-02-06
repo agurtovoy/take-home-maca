@@ -78,8 +78,12 @@ export const useCSSTransition = ({
                 if (!show) setState("leaving");
                 break;
 
+            case "left":
+            case "entered":
+                break;
+
             default:
-                console.warn("Unexpected state in `onTransitionEnd`:", state);
+                console.warn("Unexpected state in `onAnimationEnd`:", state);
         }
     };
 
