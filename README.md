@@ -12,9 +12,7 @@ https://user-images.githubusercontent.com/3394202/217011275-323bf180-284e-4396-9
 
 ### Slow network
 
-https://user-images.githubusercontent.com/3394202/217013733-34288e7b-5630-4909-8c24-083ea2d53d38.mp4
-
-
+https://user-images.githubusercontent.com/3394202/217015513-ea97b413-3f7e-48c3-8652-b361e8e830b5.mp4
 
 
 ## Summary
