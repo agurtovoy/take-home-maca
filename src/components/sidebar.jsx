@@ -45,7 +45,9 @@ export const Sidebar = ({ children }) => {
                     <div
                         className={clsx(
                             "ss-duration ss-w-full absolute top-0 left-0 transform-gpu select-none opacity-100 transition will-change-transform",
-                            isShown ? "pointer-events-auto ss:translate-x-0" : "-translate-x-full"
+                            isShown
+                                ? "pointer-events-auto ss:translate-x-0 ss:opacity-100"
+                                : "-translate-x-full ss:opacity-0"
                             //                        forceClose ? "ss:opacity-0" : "ss:translate-x-0 ss:opacity-100"
                             // state.forceClose ? "" : "ss:translate-x-0"
                         )}
