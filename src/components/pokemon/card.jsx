@@ -101,7 +101,7 @@ export const PokemonCard = memo(({ id, name }) => {
     return (
         <Card>
             <div className="flex w-full items-baseline justify-between">
-                <h5 className="text-lg font-bold capitalize">{name}</h5>
+                <h5 className="text-lg font-bold capitalize text-slate-50">{name}</h5>
                 <div className="text-md font-semibold text-slate-500">#{paddedId(id, 4)}</div>
             </div>
             <Thumbnail id={id} alt={name} />

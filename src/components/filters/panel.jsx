@@ -24,7 +24,7 @@ const CategorySelector = ({ name, selected, onChange }) => (
 
 const FiltersHeader = () => (
     <div className="sticky top-0">
-        <h2 className="mt-[1px] cursor-default whitespace-nowrap bg-gray-700 p-5 pb-3 text-sm font-semibold uppercase">
+        <h2 className="mt-[1px] cursor-default whitespace-nowrap bg-gray-700 p-5 pb-3 text-sm font-semibold uppercase text-slate-50">
             Filter by type
         </h2>
         <div className="h-2 bg-gradient-to-b from-gray-700"></div>

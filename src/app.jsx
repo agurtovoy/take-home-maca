@@ -32,7 +32,7 @@ const App = () => {
     const { data, error } = usePokeAPI([typesQuery]);
     if (!data || error) {
         return (
-            <div className="flex h-screen w-screen items-center justify-center">
+            <div className="flex h-screen w-screen items-center justify-center bg-slate-800">
                 <Spinner />
             </div>
         );

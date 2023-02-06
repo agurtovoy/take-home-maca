@@ -11,7 +11,7 @@ import { useStore } from "@/components/store";
 const PokedexHeaderContent = ({ className }) => (
     <div className={clsx("flex items-center pt-4 pl-1 pb-3", className)}>
         <OpenSideBarButton />
-        <h1 className="cursor-default text-xl font-bold leading-5">
+        <h1 className="cursor-default text-xl font-bold leading-5 text-slate-50">
             Pokédex <i className="font-normal italic">Lite</i>
         </h1>
     </div>
