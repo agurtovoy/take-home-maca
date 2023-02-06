@@ -1,10 +1,28 @@
 # Pokédex Lite
 
+## Highlights
+
+### Responsiveness
+
+https://user-images.githubusercontent.com/3394202/217006276-c88b5868-cc29-4698-a6cf-c035a90b053f.mp4
+
+https://user-images.githubusercontent.com/3394202/217009029-82f7af3a-c433-4a45-9e77-0d593aeea902.mp4
+
+https://user-images.githubusercontent.com/3394202/217011275-323bf180-284e-4396-96d8-437bdd1ed37f.mp4
+
+### Slow network
+
+https://user-images.githubusercontent.com/3394202/217013733-34288e7b-5630-4909-8c24-083ea2d53d38.mp4
+
+
+
+
 ## Summary
 
  - Pure React SPA (no server side)
- - Pulls data from [PokeAPI's GraphQL endpoint](https://pokeapi.co/docs/graphql)
+ - Pulls data from ~[PokeAPI's GraphQL endpoint](https://pokeapi.co/docs/graphql)~ [PokeAPI's REST endpoint](https://pokeapi.co/docs/v2)
  - Doesn't use any 3rd party UI components
+ - All CSS animations/transitions are handrolled
  - Deployed to https://take-home-maca.vercel.app/
  - Used tech:
    - React 18.2
@@ -31,3 +49,5 @@
 - Poor unit tests and stories coverage
 - Hard-coded UI theme, missing light mode support
 - Tons of unsuppressed dev dependency warnings (mostly coming from Storybook)
+- REST API is a hack that I threw together in about an hour after discovering that the GraphQL endpoint became unresponsive
+- Some flickering surfaced after the switch from GraphQL to REST
