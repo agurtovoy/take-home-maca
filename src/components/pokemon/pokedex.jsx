@@ -4,9 +4,11 @@ import { OpenSideBarButton } from "@/components/sidebar";
 import { Spinner } from "@/components/spinner";
 import { PokemonList } from "@/components/pokemon/list";
 
-import { queries, useLoadPokemons } from "@/components/pokemon/queries";
+import { useLoadPokemons } from "@/components/pokemon/query";
 
 import { useStore } from "@/components/store";
+
+import { queries } from "@/lib/api/poke-api";
 
 const PokedexHeaderContent = ({ className }) => (
     <div className={clsx("flex items-center pt-4 pl-1 pb-3", className)}>

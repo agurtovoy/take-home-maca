@@ -1,6 +1,15 @@
-import { usePokeAPIInfinite, gql } from "@/lib/poke-api";
+import { request, gql } from "graphql-request";
 
 export const queries = {
+    types: gql`
+        query typesQuery {
+            types: pokemon_v2_type(where: { name: { _neq: "unknown" } }) {
+                name
+                id
+            }
+        }
+    `,
+
     allPokemons: gql`
         query allPokemons($offset: Int, $limit: Int) {
             pokemon: pokemon_v2_pokemon(
@@ -38,24 +47,11 @@ export const queries = {
     `,
 };
 
-const PAGE_SIZE = 20;
+export const fetcher = ([query, args]) => request("https://beta.pokeapi.co/graphql/v1beta", query, args);
 
-export const useLoadPokemons = ({ query, args }) => {
-    const fetchPokemons = (page, previousPageData) => {
-        return page === 0 || previousPageData?.pokemon.length
-            ? [query, { limit: PAGE_SIZE, offset: page * PAGE_SIZE, ...(args || {}) }]
-            : null;
-    };
+export const PAGE_SIZE = 20;
 
-    const { data, size, setSize, isLoading, error } = usePokeAPIInfinite(fetchPokemons);
-    const pokemons = data ? [].concat(...data.map(r => r.pokemon)) : [];
-    const haveMore = !data || data[data.length - 1]?.pokemon.length === PAGE_SIZE;
-    const loading = data?.length !== size;
-
-    return {
-        pokemons,
-        loading,
-        pendingQuery: isLoading || error,
-        showMore: !loading && haveMore ? () => setSize(size + 1) : null,
-    };
-};
+export const fetchPokemons = ({ query, args, page, previousPageData }) =>
+    page === 0 || previousPageData?.pokemon.length
+        ? [query, { limit: PAGE_SIZE, offset: page * PAGE_SIZE, ...(args || {}) }]
+        : null;

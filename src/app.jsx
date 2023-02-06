@@ -4,16 +4,7 @@ import { Pokedex } from "@/components/pokemon/pokedex";
 import { Spinner } from "@/components/spinner";
 import { StoreProvider } from "@/components/store";
 
-import { usePokeAPI, gql } from "@/lib/poke-api";
-
-const typesQuery = gql`
-    query typesQuery {
-        types: pokemon_v2_type(where: { name: { _neq: "unknown" } }) {
-            name
-            id
-        }
-    }
-`;
+import { usePokemonTypesQuery } from "@/lib/api/poke-api";
 
 const MainScreen = () => (
     <div className="h-screen overflow-y-auto bg-slate-800">
@@ -29,7 +20,7 @@ const MainScreen = () => (
 );
 
 const App = () => {
-    const { data, error } = usePokeAPI([typesQuery]);
+    const { data, error } = usePokemonTypesQuery();
     if (!data || error) {
         return (
             <div className="flex h-screen w-screen items-center justify-center bg-slate-800">
